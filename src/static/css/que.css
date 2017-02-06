@@ -25,6 +25,9 @@ header li{
 	padding-left: 15px;
 	padding-right: 15px;
 }
+header li.active a{
+	color:red;
+}
 header a{
 	color: #fff;
 }
@@ -61,4 +64,28 @@ header a{
 	bottom: 0;
 	background-color: dodgerblue;
 	z-index: 150;
+}
+/*tabs*/
+.s2 .content{
+	background-image: url(../images/bg.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+	width: 756px;
+	height: 417px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 135px;
+	color: #fff;
+}
+.tab_title.active{
+	color:red;
+	font-size: 16px;
+}
+.slide{
+	position: relative;
+}
+.slide .back{
+	position: absolute;
+	right:50px;
+	top:135px;
 }

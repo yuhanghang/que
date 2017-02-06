@@ -1,7 +1,8 @@
 $(function(){
 	$("#main").fullpage({
 		anchors: ['page1','page2','page3','page4','page5','page6'],//导航链接锚点
-		slidesNavigation:true
+		slidesNavigation:true,
+		menu: '#menu',//作为导航的元素
 	});
 	$(".front .nav li").click(function(){
 		//1，隐藏front，显示backup
@@ -23,4 +24,33 @@ $(function(){
 		// 2，开始滚动
 		$.fn.fullpage.setAllowScrolling(true)
 	})
+	$(".tab").tabs();
+	$("header li").click(function(){
+		$(".backup").hide();
+		$(".front").show();
+		$.fn.fullpage.setAllowScrolling(true)
+	})
 })
+
+;(
+	function($){
+	$.fn.extend({
+		"tabs":function(){
+			this.each(function(){
+			var pa=$(this);			
+				pa.find(".tab_content").hide();
+				pa.find(".tab_content").eq(0).show();
+				pa.find(".tab_title").eq(0).addClass("active");
+				//单击里面的tab_title 显示对应的 tab_content;
+				pa.find(".tab_title").click(function(){
+					var index =	$(this).index();
+					pa.find(".tab_content:visible").hide();//以前显示的隐藏
+					pa.find(".tab_title.active").removeClass("active");
+					pa.find(".tab_content").eq(index).show();//显示对应的content
+					$(this).addClass("active");
+				})
+			})
+		}
+	})
+	}
+)(jQuery)
