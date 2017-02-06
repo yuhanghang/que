@@ -44,3 +44,21 @@ header a{
 .s1 .fp-controlArrow{
 	display: none !important;
 }
+
+.section{
+	position: relative;
+}
+.section .backup{
+	display: none;
+}
+.section .front{
+	padding-top: 135px;
+	width: 100%;
+	position: absolute;
+	left:0;
+	right:0;
+	top:0;
+	bottom: 0;
+	background-color: dodgerblue;
+	z-index: 150;
+}
