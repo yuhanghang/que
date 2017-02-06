@@ -1,8 +1,14 @@
 $(function(){
+	var screenInd = 0;//记录当前是第几屏
+	
 	$("#main").fullpage({
 		anchors: ['page1','page2','page3','page4','page5','page6'],//导航链接锚点
 		slidesNavigation:true,
 		menu: '#menu',//作为导航的元素
+		afterLoad:function(anchor,index){
+		 screenInd = index;
+		 console.log(screenInd);
+		}
 	});
 	$(".front .nav li").click(function(){
 		//1，隐藏front，显示backup
@@ -29,7 +35,36 @@ $(function(){
 		$(".backup").hide();
 		$(".front").show();
 		$.fn.fullpage.setAllowScrolling(true)
+		 hideFooter();
 	})
+	//显示页脚
+	//何时显示页脚
+	//1，鼠标滚动后
+	//2，鼠标向下滚动后
+	//3，当是第6屏时候
+	window.addEventListener("mousewheel",wheelHd,false);
+	//添加鼠标滚动事件监听
+	function wheelHd(e){
+		if(screenInd==6){		
+			if(e.wheelDelta<0){
+				showFooter();
+			}else{
+				hideFooter();
+			}
+		}
+	}
+	//如何显示页脚
+	function showFooter(){
+		$.fn.fullpage.setAllowScrolling(false);//不让插件滚动
+		$("#main").css("margin-top",-160);
+		$("footer").css("bottom",0);
+	}
+	function hideFooter(){
+		$.fn.fullpage.setAllowScrolling(true);//不让插件滚动
+		$("#main").css("margin-top",0);
+		$("footer").css("bottom",-160);
+	}
+	
 })
 
 ;(
