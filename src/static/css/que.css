@@ -100,3 +100,75 @@ footer{
 	background-color: gold;
 	transition:bottom 1s ease;
 }
+/*modal*/
+.modal{
+	position: absolute;
+	left:0;
+	top:0;
+	bottom:0;
+	right:0;
+	z-index: 300;
+	text-align: center;
+	color:#fff;
+	display: none;
+
+}
+.modal .mask{
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	left:0;
+	top:0;
+	background-color: rgba(0,0,0,.7);
+}
+.modal_content{
+	height: 100%;
+	width: 100%;
+	position: relative;
+	
+}
+.slider_content{
+	width: 2300px;
+	height: 500px;
+}
+.slider_container{
+	width: 1150px;
+	height: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 90px;
+	background-color: lightcoral;
+	z-index: 250;
+	border:5px solid red;
+	overflow: hidden;
+}
+.modal .pre{
+	position:absolute;
+	left:-100px;
+	top:50%;
+}
+.modal .next{
+	position:absolute;
+	right:-100px;
+	top:50%;
+
+}
+.modal .slide_controls{
+	position: absolute;
+	top:250px;
+	width: 1150px;
+}
+.modal .close{
+	position: absolute;
+	right:50px;
+	top:-50px;
+}
+.modal .slide{
+	width: 1150px;
+	height: 500px;
+	background-color: deepskyblue;
+	float:left;
+}
+.modal .slide:nth-child(2n){
+	background-color: yellow;
+}
